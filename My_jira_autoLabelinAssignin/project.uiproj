@@ -1,0 +1,6 @@
+{
+  "Name": "My_jira_autoLabelinAssignin",
+  "ProjectType": "Process",
+  "Description": "bu projede jirada oluşturulan bir task'in ai tarafından otomatik label ve kişi ataması yapılacak",
+  "MainFile": "Main.xaml"
+}

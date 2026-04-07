@@ -1,0 +1,6 @@
+# UiPath gereksizleri
+.local/
+*.log
+project.lock
+
+# Hassas veriler
