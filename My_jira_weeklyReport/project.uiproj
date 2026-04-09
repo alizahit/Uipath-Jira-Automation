@@ -1,0 +1,6 @@
+{
+  "Name": "my-jira-weeklyReport",
+  "ProjectType": "Process",
+  "Description": "haftalık jira raporu",
+  "MainFile": "Main.xaml"
+}

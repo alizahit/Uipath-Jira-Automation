@@ -1,0 +1,388 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="data_process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.CDFB2381907_issue_search_get_List.Bundle;assembly=CDFB2381907_issue_se.ET1BG3KEeKS1SJ8Sh1dPDML" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_OpenIssues" Type="InArgument(uiascb:issue_search_get_List[])" />
+    <x:Property Name="in_ClosedIssues" Type="InArgument(uiascb:issue_search_get_List[])" />
+    <x:Property Name="in_CriticalIssues" Type="InArgument(uiascb:issue_search_get_List[])" />
+    <x:Property Name="out_raportfile" Type="OutArgument(upr:ILocalResource)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>data_process_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.CDFB2381907_issue_search_get_List.Bundle</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Platform</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>CDFB2381907_issue_se.ET1BG3KEeKS1SJ8Sh1dPDML</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.DriverCore</AssemblyReference>
+      <AssemblyReference>UiPath.Interop</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Api</AssemblyReference>
+      <AssemblyReference>UiPath.Driver.ComInterop</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities.Api</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="data_process" sap:VirtualizedContainerService.HintSize="1185,4143" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="upr:ILocalResource" Name="output">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">WriteTextFile_1</x:String>
+            <x:String x:Key="SourcePropertyName">Output</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="486,4120" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Name="Total_Closed" />
+        <Variable x:TypeArguments="x:Int32" Name="Total_Open" />
+        <Variable x:TypeArguments="x:String" Name="Completion_Rate" />
+        <Variable x:TypeArguments="x:String" Name="Most_Assigned_User" />
+        <Variable x:TypeArguments="x:String" Name="Least_Assigned_User" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt_CriticalTable" />
+        <Variable x:TypeArguments="x:String" Name="str_CriticalHTML" />
+        <Variable x:TypeArguments="x:Int32" Name="Unassigned_Critical_Count" />
+        <Variable x:TypeArguments="x:Int32" Name="Stalled_InProgress_Count" />
+        <Variable x:TypeArguments="x:String" Name="CarryOver_Risk_Text" />
+        <Variable x:TypeArguments="x:String" Name="Sprint_Health_Color" />
+        <Variable x:TypeArguments="x:Int32" Name="Unfinished_ToDo_Count" />
+        <Variable x:TypeArguments="upr:ILocalResource" Name="raportfile" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;Data-process worflowu Başladı&gt;&gt;&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[Total_Closed]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[in_ClosedIssues.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;toplam tamamlanmış işlerin sayısı alındı&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[Total_Open]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[in_OpenIssues.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;toplam açık işlerin sayısı alındı&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Completion_Rate]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[If((Total_Closed + Total_Open) = 0, "0%", Math.Round((Total_Closed / (Total_Closed + Total_Open)) * 100, 2).ToString + "%")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;tamamlanma oranı hesaplandı&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign DisplayName="Assign&gt;&gt; Most_Assigned_User" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Most_Assigned_User]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From x In in_OpenIssues
+Where x.Fields.Assignee IsNot Nothing
+Group By AssigneeName = x.Fields.Assignee.DisplayName Into Group
+Order By Group.Count Descending
+Select AssigneeName).FirstOrDefault.ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;en çok iş atanan kişi bulundu&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Least_Assigned_User]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From x In in_OpenIssues
+Group By AssigneeName = If(x.Fields.Assignee Is Nothing, "Unassigned", x.Fields.Assignee.DisplayName) Into Group
+Order By Group.Count Ascending
+Select AssigneeName).FirstOrDefault]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;en az iş atanan kişi bulundu&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_15">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[Unfinished_ToDo_Count]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[(From x In in_OpenIssues
+Where x.Fields.Status.Name = "To Do"
+Select x).Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_16">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[Unassigned_Critical_Count]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[(From x In in_OpenIssues
+Where (x.Fields.Priority.Name = "Highest" Or x.Fields.Priority.Name = "Critical") And x.Fields.Assignee Is Nothing
+Select x).Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_17">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[Stalled_InProgress_Count]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[(From x In in_OpenIssues
+Where x.Fields.Status.Name = "In Progress" And x.Fields.Updated &lt; DateTime.Now.AddDays(-3)
+Select x).Count]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_13">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[CarryOver_Risk_Text]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(Unassigned_Critical_Count &gt; 0, "⛔ KRİTİK RİSK: Devreden işler arasında atanmamış kritik görevler var. Aksiyon şart!", 
+If(Stalled_InProgress_Count &gt; 0, "⚠️ DİKKAT: 'In Progress' olan işler uzun süredir güncellenmiyor. Takılmış olabilirsiniz.", 
+"✅ SPINT BAŞARILI: Hedeflere uygun ilerleniyor, önemli bir risk tespit edilmedi."))]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_12">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Sprint_Health_Color]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[If(Unassigned_Critical_Count &gt; 0, "#c0392b", If(Stalled_InProgress_Count &gt; 0, "#f39c12", "#27ae60"))]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <ui:BuildDataTable DataTable="[dt_CriticalTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="452,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;IssueKey&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Summary&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Priority&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Assignee&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;DueDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;data table oluşturuldu&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <ui:ForEach x:TypeArguments="uiascb:issue_search_get_List" CurrentIndex="{x:Null}" DisplayName="For Each currentissue" sap:VirtualizedContainerService.HintSize="452,403" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CriticalIssues]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="uiascb:issue_search_get_List">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="uiascb:issue_search_get_List" Name="currentissue" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,272" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xA;    currentissue.Key.ToString,&#xA;    currentissue.Fields.Summary.ToString,&#xA;    currentissue.Fields.Priority.Name.ToString,&#xA;    If(currentissue.Fields.Assignee Is Nothing, &quot;Unassigned&quot;, currentissue.Fields.Assignee.DisplayName.ToString),&#xA;    If(currentissue.Fields.Duedate Is Nothing, &quot;Tarih Yok&quot;, currentissue.Fields.Duedate.ToString)&#xA;}]" DataTable="[dt_CriticalTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,212" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[str_CriticalHTML]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;table style='border-collapse: collapse; width: 100%; font-size: 12px;'&gt;" + 
+"&lt;thead style='background-color: #4CAF50; color: white;'&gt;" + 
+"&lt;tr&gt;" + 
+"&lt;th style='border: 1px solid #dddddd; padding: 8px; text-align: left;'&gt;Issue Key&lt;/th&gt;" + 
+"&lt;th style='border: 1px solid #dddddd; padding: 8px; text-align: left;'&gt;Özet&lt;/th&gt;" + 
+"&lt;th style='border: 1px solid #dddddd; padding: 8px; text-align: left;'&gt;Öncelik&lt;/th&gt;" + 
+"&lt;th style='border: 1px solid #dddddd; padding: 8px; text-align: left;'&gt;Sorumlu&lt;/th&gt;" + 
+"&lt;th style='border: 1px solid #dddddd; padding: 8px; text-align: left;'&gt;Son Tarih&lt;/th&gt;" + 
+"&lt;/tr&gt;" + 
+"&lt;/thead&gt;" + 
+"&lt;tbody&gt;" + 
+String.Join("", (From row In dt_CriticalTable.AsEnumerable() Select "&lt;tr&gt;" + 
+"&lt;td style='border: 1px solid #dddddd; padding: 8px;'&gt;" + row("IssueKey").ToString + "&lt;/td&gt;" + 
+"&lt;td style='border: 1px solid #dddddd; padding: 8px;'&gt;" + row("Summary").ToString + "&lt;/td&gt;" + 
+"&lt;td style='border: 1px solid #dddddd; padding: 8px;'&gt;" + row("Priority").ToString + "&lt;/td&gt;" + 
+"&lt;td style='border: 1px solid #dddddd; padding: 8px;'&gt;" + row("Assignee").ToString + "&lt;/td&gt;" + 
+"&lt;td style='border: 1px solid #dddddd; padding: 8px;'&gt;" + row("DueDate").ToString + "&lt;/td&gt;" + 
+"&lt;/tr&gt;").ToArray()) + 
+"&lt;/tbody&gt;" + 
+"&lt;/table&gt;"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[&quot;kritik işlerin tablosu oluşturuldu&quot;]" />
+      <ui:CreateFile PathResource="{x:Null}" DisplayName="Create File" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[&quot;raport&quot; + DateTime.Now.ToString(&quot;dd.MM.yyyy&quot;) + &quot;.html&quot;]" Output="[raportfile]" Path="C:/Users/azahi/OneDrive/Belgeler/UiPath/my-jira-weeklyReport/Data/" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;html dosyası oluşturuldu&quot;]" />
+      <ui:WriteTextFile FileName="{x:Null}" DisplayName="Write Text File" File="[raportfile]" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Output="[output]" Text="[&quot;&lt;!DOCTYPE html&gt;&#xA;&lt;html&gt;&#xA;&lt;head&gt;&#xA;&lt;style&gt;&#xA;    body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f7; color: #333; padding: 20px; }&#xA;    .container { max-width: 850px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }&#xA;    &#xA;    /* Üst Başlık - Dinamik Renk */&#xA;    .header { padding: 25px; color: white; text-align: center; }&#xA;    .header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }&#xA;    .header p { margin: 5px 0 0; opacity: 0.9; font-size: 16px; }&#xA;&#xA;    /* KPI Kartları */&#xA;    .metrics { display: flex; justify-content: space-around; padding: 20px; background: #fff; border-bottom: 1px solid #eee; }&#xA;    .metric-box { text-align: center; flex: 1; }&#xA;    .metric-num { font-size: 24px; font-weight: bold; display: block; }&#xA;    .metric-desc { font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: 1px; }&#xA;&#xA;    /* Bölüm Stilleri */&#xA;    .section { padding: 20px 30px; border-bottom: 1px solid #f0f0f0; }&#xA;    .section h3 { margin-top: 0; color: #444; border-left: 5px solid #ccc; padding-left: 10px; font-size: 18px; }&#xA;    &#xA;    .alert-box { padding: 15px; background-color: #fff3cd; border-left: 5px solid #ffc107; color: #856404; margin-bottom: 20px; border-radius: 4px; }&#xA;    .risk-text { color: #c0392b; font-weight: bold; }&#xA;    .safe-text { color: #27ae60; font-weight: bold; }&#xA;    &#xA;    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }&#xA;    th { background: #f8f9fa; text-align: left; padding: 10px; border-bottom: 2px solid #ddd; color: #555; }&#xA;    td { padding: 10px; border-bottom: 1px solid #eee; }&#xA;&lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;&#xA;&lt;div class='container'&gt;&#xA;    &lt;!-- Üst Başlık (Renk Değişken) --&gt;&#xA;    &lt;div class='header' style='background-color: &quot; + Sprint_Health_Color + &quot;;'&gt;&#xA;        &lt;h1&gt;Sprint Sonuç Raporu&lt;/h1&gt;&#xA;        &lt;p&gt;&quot; + Now.ToString(&quot;dd MMMM yyyy dddd&quot;) + &quot;&lt;/p&gt;&#xA;        &lt;div style='font-size: 18px; font-weight: 500; margin-top: 15px; background: rgba(255,255,255,0.2); display: inline-block; padding: 5px 20px; border-radius: 20px;'&gt;&#xA;            &quot; + CarryOver_Risk_Text + &quot;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;!-- KPI Kartları --&gt;&#xA;    &lt;div class='metrics'&gt;&#xA;        &lt;div class='metric-box'&gt;&#xA;            &lt;span class='metric-num' style='color: #2980b9;'&gt;&quot; + Total_Closed.ToString + &quot;&lt;/span&gt;&#xA;            &lt;span class='metric-desc'&gt;Tamamlanan İş&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class='metric-box'&gt;&#xA;            &lt;span class='metric-num' style='color: #e67e22;'&gt;&quot; + in_OpenIssues.Count.ToString + &quot;&lt;/span&gt;&#xA;            &lt;span class='metric-desc'&gt;Devreden İş (Open)&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class='metric-box'&gt;&#xA;            &lt;span class='metric-num' style='color: &quot; + If(Unfinished_ToDo_Count &gt; 0, &quot;#c0392b&quot;, &quot;#27ae60&quot;) + &quot;;'&gt;&quot; + Unfinished_ToDo_Count.ToString + &quot;&lt;/span&gt;&#xA;            &lt;span class='metric-desc'&gt;Başlanmamış (To Do)&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;!-- BÖLÜM 1: DEVREDEN İŞ RİSK ANALİZİ --&gt;&#xA;    &lt;div class='section'&gt;&#xA;        &lt;h3&gt;📉 Devreden İşlerin Durumu (Carry-over Analysis)&lt;/h3&gt;&#xA;        &lt;p style='font-size: 14px; color: #555; line-height: 1.5;'&gt;&#xA;            Sprint sona ererken &quot; + in_OpenIssues.Count.ToString + &quot; iş tamamlanamadı ve bir sonraki sprinte devredildi.&#xA;            &quot; + If(Unfinished_ToDo_Count &gt; 0, &quot;&lt;span class='risk-text'&gt;DİKKAT:&lt;/span&gt; Devreden işlerin &quot; + Unfinished_ToDo_Count.ToString + &quot; tanesi 'To Do' statüsünde. Bu işlerin üzerinde çalışılmamış bile değil, bu durum bir sonraki sprintin planını ciddi şekilde sıkıştırabilir.&quot;, &quot;Tüm devreden işler 'In Progress' statüsünde. Ekip işlere odaklanmış, sadece süre yetmemiş.&quot;) + &quot;&#xA;        &lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;!-- BÖLÜM 2: YÖNETİCİ RİSK UYARILARI --&gt;&#xA;    &lt;div class='section'&gt;&#xA;        &lt;h3&gt;🚨 Yönetici Risk Paneli&lt;/h3&gt;&#xA;        &#xA;        &quot; + If(Unassigned_Critical_Count &gt; 0, &quot;&lt;div class='alert-box'&gt;&lt;strong&gt;Sahipsiz Kritik İş:&lt;/strong&gt; &quot; + Unassigned_Critical_Count.ToString + &quot; adet Kritik/Highest öncelikli iş var ve henüz kime atanacağı belli değil. Bu işler bir sonraki sprintin başında gecikmelere neden olabilir.&lt;/div&gt;&quot;, &quot;&quot;) + &quot;&#xA;&#xA;        &quot; + If(Stalled_InProgress_Count &gt; 0, &quot;&lt;div class='alert-box' style='border-left-color: #e67e22; background-color: #fff8e1; color: #8d6e63;'&gt;&lt;strong&gt;Takılmış İşler (Stalled):&lt;/strong&gt; &quot; + Stalled_InProgress_Count.ToString + &quot; adet iş 'In Progress' olmasına rağmen son 3 gündür güncellenmemiş. Bu işler engellenebilir (Blocked) durumda olabilir.&lt;/div&gt;&quot;, &quot;&quot;) + &quot;&#xA;&#xA;        &quot; + If(Unassigned_Critical_Count = 0 And Stalled_InProgress_Count = 0, &quot;&lt;p style='color: #27ae60; font-weight: bold; text-align: center;'&gt;✅ Herhangi bir operasyonel risk tespit edilmedi. İş akışı sağlıklı.&lt;/p&gt;&quot;, &quot;&quot;) + &quot;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;!-- BÖLÜM 3: PERSONEL YÜK VE VERİMLİLİK --&gt;&#xA;    &lt;div class='section' style='border-bottom: none;'&gt;&#xA;        &lt;h3&gt;👥 Personel Yük Dağılımı&lt;/h3&gt;&#xA;        &lt;table&gt;&#xA;            &lt;tr&gt;&#xA;                &lt;th&gt;En Çok İş Alan Kişi&lt;/th&gt;&#xA;                &lt;td&gt;&quot; + Most_Assigned_User + &quot;&lt;/td&gt;&#xA;            &lt;/tr&gt;&#xA;            &lt;tr&gt;&#xA;                &lt;th&gt;En Az İş Alan Kişi&lt;/th&gt;&#xA;                &lt;td&gt;&quot; + Least_Assigned_User + &quot;&lt;/td&gt;&#xA;            &lt;/tr&gt;&#xA;        &lt;/table&gt;&#xA;        &lt;p style='font-size: 12px; color: #999; margin-top: 10px;'&gt;*Veriler, sprint kapanış anındaki 'Open' statülü işlere dayanmaktadır.&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&quot;]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_10" Message="[&quot;html kodları yazıldı&quot;]" />
+      <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_19">
+        <Assign.To>
+          <OutArgument x:TypeArguments="upr:ILocalResource">[out_raportfile]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="upr:ILocalResource">[raportfile]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Data-process worflowu bitti&gt;&gt;&quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>

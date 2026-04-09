@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f7; color: #333; padding: 20px; }
+    .container { max-width: 850px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    
+    /* Üst Başlık - Dinamik Renk */
+    .header { padding: 25px; color: white; text-align: center; }
+    .header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
+    .header p { margin: 5px 0 0; opacity: 0.9; font-size: 16px; }
+
+    /* KPI Kartları */
+    .metrics { display: flex; justify-content: space-around; padding: 20px; background: #fff; border-bottom: 1px solid #eee; }
+    .metric-box { text-align: center; flex: 1; }
+    .metric-num { font-size: 24px; font-weight: bold; display: block; }
+    .metric-desc { font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Bölüm Stilleri */
+    .section { padding: 20px 30px; border-bottom: 1px solid #f0f0f0; }
+    .section h3 { margin-top: 0; color: #444; border-left: 5px solid #ccc; padding-left: 10px; font-size: 18px; }
+    
+    .alert-box { padding: 15px; background-color: #fff3cd; border-left: 5px solid #ffc107; color: #856404; margin-bottom: 20px; border-radius: 4px; }
+    .risk-text { color: #c0392b; font-weight: bold; }
+    .safe-text { color: #27ae60; font-weight: bold; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+    th { background: #f8f9fa; text-align: left; padding: 10px; border-bottom: 2px solid #ddd; color: #555; }
+    td { padding: 10px; border-bottom: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<div class='container'>
+    <!-- Üst Başlık (Renk Değişken) -->
+    <div class='header' style='background-color: #27ae60;'>
+        <h1>Sprint Sonuç Raporu</h1>
+        <p>09 April 2026 Thursday</p>
+        <div style='font-size: 18px; font-weight: 500; margin-top: 15px; background: rgba(255,255,255,0.2); display: inline-block; padding: 5px 20px; border-radius: 20px;'>
+            ✅ SPINT BAŞARILI: Hedeflere uygun ilerleniyor, önemli bir risk tespit edilmedi.
+        </div>
+    </div>
+
+    <!-- KPI Kartları -->
+    <div class='metrics'>
+        <div class='metric-box'>
+            <span class='metric-num' style='color: #2980b9;'>2</span>
+            <span class='metric-desc'>Tamamlanan İş</span>
+        </div>
+        <div class='metric-box'>
+            <span class='metric-num' style='color: #e67e22;'>7</span>
+            <span class='metric-desc'>Devreden İş (Open)</span>
+        </div>
+        <div class='metric-box'>
+            <span class='metric-num' style='color: #c0392b;'>6</span>
+            <span class='metric-desc'>Başlanmamış (To Do)</span>
+        </div>
+    </div>
+
+    <!-- BÖLÜM 1: DEVREDEN İŞ RİSK ANALİZİ -->
+    <div class='section'>
+        <h3>📉 Devreden İşlerin Durumu (Carry-over Analysis)</h3>
+        <p style='font-size: 14px; color: #555; line-height: 1.5;'>
+            Sprint sona ererken 7 iş tamamlanamadı ve bir sonraki sprinte devredildi.
+            <span class='risk-text'>DİKKAT:</span> Devreden işlerin 6 tanesi 'To Do' statüsünde. Bu işlerin üzerinde çalışılmamış bile değil, bu durum bir sonraki sprintin planını ciddi şekilde sıkıştırabilir.
+        </p>
+    </div>
+
+    <!-- BÖLÜM 2: YÖNETİCİ RİSK UYARILARI -->
+    <div class='section'>
+        <h3>🚨 Yönetici Risk Paneli</h3>
+        
+        
+
+        
+
+        <p style='color: #27ae60; font-weight: bold; text-align: center;'>✅ Herhangi bir operasyonel risk tespit edilmedi. İş akışı sağlıklı.</p>
+    </div>
+
+    <!-- BÖLÜM 3: PERSONEL YÜK VE VERİMLİLİK -->
+    <div class='section' style='border-bottom: none;'>
+        <h3>👥 Personel Yük Dağılımı</h3>
+        <table>
+            <tr>
+                <th>En Çok İş Alan Kişi</th>
+                <td>students</td>
+            </tr>
+            <tr>
+                <th>En Az İş Alan Kişi</th>
+                <td>students</td>
+            </tr>
+        </table>
+        <p style='font-size: 12px; color: #999; margin-top: 10px;'>*Veriler, sprint kapanış anındaki 'Open' statülü işlere dayanmaktadır.</p>
+    </div>
+</div>
+
+</body>
+</html>
