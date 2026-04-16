@@ -1,0 +1,44 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "34bf9d8d-f1be-4b6a-b2cd-64c48af959d5",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_OrchestratorQueueName": {
+            "type": "string",
+            "description": "Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file."
+          },
+          "in_OrchestratorQueueFolder": {
+            "type": "string",
+            "description": "Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file."
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "filePath": "z_process\\sendmail.xaml",
+      "uniqueId": "c9171948-6645-4ae5-9f45-2cc5c6e750ae",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_Config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "in_reportEmailAddress": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    }
+  ]
+}

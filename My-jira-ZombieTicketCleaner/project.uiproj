@@ -1,0 +1,6 @@
+{
+  "Name": "My-jira-ZombieTicketCleaner",
+  "ProjectType": "Process",
+  "Description": "My-jira-ZombieTicketCleaner",
+  "MainFile": "Main.xaml"
+}
